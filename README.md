@@ -1,6 +1,6 @@
 # QuantumWear
 
-Design your own polo shirt. Start from a black or white preset, add text or artwork, drag it into place on the front or back, save the design, and order it.
+Design your own T-shirt, polo shirt, or hoodie. Start with one of two logo T-shirts, add text or artwork, drag it into place on the front or back, save the design to your account, and order it.
 
 **Stack:** MongoDB, Express, React 18 (Vite) and Node, with React Router DOM for routing.
 
@@ -23,6 +23,7 @@ Open http://localhost:5173.
 
 **MongoDB:** put your connection string in `server/.env` as `MONGO_URI` (local MongoDB or an Atlas URI).
 If `MONGO_URI` is empty or unreachable, the API falls back to temporary in-memory storage so you can still try everything. Data resets when the server restarts.
+**Accounts:** set `JWT_SECRET` in `server/.env` to a long, random secret; signup, login, and saved designs require MongoDB and this secret.
 
 ### Production
 
@@ -35,19 +36,22 @@ npm start                    # Express serves the API and the built site on :500
 
 | Route | What it does |
 | --- | --- |
-| `/` | Home with a live "type on the shirt" preview, the two presets and how it works |
-| `/presets` | Black and white polos: customize one or add it to the cart |
-| `/customize` and `/customize/:designId` | The designer: text, images, fonts, colors, rotation, front and back, save and add to cart |
-| `/designs` | Designs saved in this browser: edit, add to cart, delete |
+| `/` | Home with a live shirt preview, the two branded starter shirts and how it works |
+| `/presets` | Black and white logo T-shirts: customize one or add it to the cart |
+| `/customize` and `/customize/:designId` | Design a T-shirt, polo shirt, or hoodie; add text or images, save and add to cart |
+| `/login` and `/signup` | Sign in or create an account |
+| `/designs` | View and manage designs saved to your account |
 | `/cart`, `/checkout`, `/order/:orderId` | Cart, delivery details and order confirmation |
 
 ## API
 
 | Method and path | Purpose |
 | --- | --- |
-| `GET /api/presets` | Black and white presets, prices and sizes |
-| `GET /api/designs?ids=a,b` | Designs by id |
-| `POST /api/designs`, `GET/PUT/DELETE /api/designs/:id` | Create, read, update, delete a design |
+| `GET /api/presets` | Starter shirts, prices and sizes |
+| `GET /api/auth/me` | Current signed-in account |
+| `POST /api/auth/signup`, `POST /api/auth/login`, `POST /api/auth/logout` | Create an account, sign in, and sign out |
+| `GET /api/designs` | List the signed-in account's designs |
+| `POST /api/designs`, `GET/PUT/DELETE /api/designs/:id` | Create, read, update, delete an account-owned design (sign-in required) |
 | `POST /api/orders`, `GET /api/orders/:id` | Place and read an order (the server recalculates the total) |
 | `GET /api/health` | Status and storage mode (`mongo` or `memory`) |
 
@@ -57,10 +61,9 @@ npm start                    # Express serves the API and the built site on :500
 - **Presets (colors, names, text):** `server/src/data/presets.js` and `client/src/config.js`.
 - **Shirt drawing:** `client/src/components/Polo.jsx` (one SVG, any color, front and back).
 - **Fonts for customers:** `FONTS` in `client/src/config.js` and the Google Fonts link in `client/index.html`.
-- **Logo:** `client/public/logo-mark.svg` is the icon cut from your supplied logo and is used in the header and footer next to the "QuantumWear" name. Your original `logo-black-text.svg` and `logo-white-text.svg` are in the same folder.
+- **Logo:** `client/public/logo-mark.svg` is used in the header and footer. The black and white QuantumWear wordmark SVGs are printed on the left chest of the white and black starter T-shirts.
 
 ## Not included yet
 
 - Payments (orders are stored, nothing is charged) and order emails.
-- User accounts: saved designs are remembered by this browser, using ids kept in localStorage.
 - An admin screen to view orders. They are in the `orders` collection.
