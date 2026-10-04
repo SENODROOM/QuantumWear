@@ -4,6 +4,8 @@ Design your own T-shirt, polo shirt, or hoodie. Explore Quantum Logics logo plac
 
 **Stack:** MongoDB, Express, React 18 (Vite) and Node, with React Router DOM for routing.
 
+**Pricing:** T-shirts PKR 700, polo shirts PKR 800, hoodies PKR 1,500. Custom printing adds PKR 300 to any garment. Prices are shown in Pakistani rupees.
+
 ## Repository guides
 
 - [Client](client/README.md): frontend setup, scripts, and configuration.
@@ -57,7 +59,7 @@ npm start                    # Express serves the API and the built site on :500
 
 ## Where to change things
 
-- **Prices and sizes:** `server/src/config.js` and `client/src/config.js` (keep both in sync).
+- **Prices and sizes:** `GARMENT_PRICES`, `PRINT_FEE`, and `SIZES` in `server/src/config.js` and `client/src/config.js` (keep both in sync).
 - **Presets (colors, names, text):** `server/src/data/presets.js` and `client/src/config.js`.
 - **Shirt drawing:** `client/src/components/Polo.jsx` (one SVG, any color, front and back).
 - **Fonts for customers:** `FONTS` in `client/src/config.js` and the Google Fonts link in `client/index.html`.
