@@ -4,6 +4,11 @@ Design your own polo shirt. Start from a black or white preset, add text or artw
 
 **Stack:** MongoDB, Express, React 18 (Vite) and Node, with React Router DOM for routing.
 
+## Repository guides
+
+- [Client](client/README.md): frontend setup, scripts, and configuration.
+- [Server](server/README.md): API setup, environment variables, and endpoints.
+
 ## Run it
 
 You need Node 18 or newer.
