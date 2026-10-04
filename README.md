@@ -1,6 +1,6 @@
 # QuantumWear
 
-Design your own T-shirt, polo shirt, or hoodie. Start with one of two logo T-shirts, add text or artwork, drag it into place on the front or back, save the design to your account, and order it.
+Design your own T-shirt, polo shirt, or hoodie. Explore example designs for inspiration, then choose the garment and make your own design with text or artwork. Save it to your account and order it.
 
 **Stack:** MongoDB, Express, React 18 (Vite) and Node, with React Router DOM for routing.
 
@@ -36,8 +36,8 @@ npm start                    # Express serves the API and the built site on :500
 
 | Route | What it does |
 | --- | --- |
-| `/` | Home with a live shirt preview, the two branded starter shirts and how it works |
-| `/presets` | Black and white logo T-shirts: customize one or add it to the cart |
+| `/` | Home with a live shirt preview, design examples and how it works |
+| `/presets` | Black and white shirt examples to inspire your own design |
 | `/customize` and `/customize/:designId` | Design a T-shirt, polo shirt, or hoodie; add text or images, save and add to cart |
 | `/login` and `/signup` | Sign in or create an account |
 | `/designs` | View and manage designs saved to your account |
@@ -47,7 +47,7 @@ npm start                    # Express serves the API and the built site on :500
 
 | Method and path | Purpose |
 | --- | --- |
-| `GET /api/presets` | Starter shirts, prices and sizes |
+| `GET /api/presets` | Shirt design examples, prices and sizes |
 | `GET /api/auth/me` | Current signed-in account |
 | `POST /api/auth/signup`, `POST /api/auth/login`, `POST /api/auth/logout` | Create an account, sign in, and sign out |
 | `GET /api/designs` | List the signed-in account's designs |
@@ -61,7 +61,7 @@ npm start                    # Express serves the API and the built site on :500
 - **Presets (colors, names, text):** `server/src/data/presets.js` and `client/src/config.js`.
 - **Shirt drawing:** `client/src/components/Polo.jsx` (one SVG, any color, front and back).
 - **Fonts for customers:** `FONTS` in `client/src/config.js` and the Google Fonts link in `client/index.html`.
-- **Logo:** `client/public/logo-mark.svg` is used in the header and footer. The black and white QuantumWear wordmark SVGs are printed on the left chest of the white and black starter T-shirts.
+- **Site logo:** `client/public/logo-mark.svg` is used in the header and footer. Example shirt designs do not include the site logo.
 
 ## Not included yet
 
