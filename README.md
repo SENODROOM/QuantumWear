@@ -1,6 +1,6 @@
 # QuantumWear
 
-Design your own T-shirt, polo shirt, or hoodie. Explore example designs for inspiration, then choose the garment and make your own design with text or artwork. Save it to your account and order it.
+Design your own T-shirt, polo shirt, or hoodie. Explore Quantum Logics logo placement examples for inspiration, then choose the garment and make your own design with text or artwork. Save it to your account and order it.
 
 **Stack:** MongoDB, Express, React 18 (Vite) and Node, with React Router DOM for routing.
 
@@ -36,8 +36,8 @@ npm start                    # Express serves the API and the built site on :500
 
 | Route | What it does |
 | --- | --- |
-| `/` | Home with a live shirt preview, design examples and how it works |
-| `/presets` | Black and white shirt examples to inspire your own design |
+| `/` | Home with a live shirt preview, logo placement examples and how it works |
+| `/presets` | Black and white Quantum Logics logo placement examples |
 | `/customize` and `/customize/:designId` | Design a T-shirt, polo shirt, or hoodie; add text or images, save and add to cart |
 | `/login` and `/signup` | Sign in or create an account |
 | `/designs` | View and manage designs saved to your account |
@@ -61,7 +61,7 @@ npm start                    # Express serves the API and the built site on :500
 - **Presets (colors, names, text):** `server/src/data/presets.js` and `client/src/config.js`.
 - **Shirt drawing:** `client/src/components/Polo.jsx` (one SVG, any color, front and back).
 - **Fonts for customers:** `FONTS` in `client/src/config.js` and the Google Fonts link in `client/index.html`.
-- **Site logo:** `client/public/logo-mark.svg` is used in the header and footer. Example shirt designs do not include the site logo.
+- **Site logo:** `client/public/logo-mark.svg` is used in the header and footer. Black and white wordmark variants demonstrate chest placement in the shirt examples.
 
 ## Not included yet
 
